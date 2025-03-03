@@ -43,62 +43,91 @@ This starter kit is designed to be a lightweight alternative to Jetstream, using
 
 ---
 
-### **4. Folder Structure (Simplified)**  
+### **4. Folder Structure**  
 ```
-app/
-├── Http/
-│   ├── Controllers/
-│   │   ├── Admin/
-│   │   │   ├── Auth/
-│   │   │   │   ├── LoginController.php
-│   │   │   │   ├── ForgotPasswordController.php
-│   │   │   │   ├── ResetPasswordController.php
-│   │   │   ├── DashboardController.php
-│   │   │   ├── ProfileController.php
-│   │   │   ├── UserManagementController.php
-│   │   ├── User/
-│   │   │   ├── Auth/
-│   │   │   │   ├── RegisterController.php
-│   │   │   │   ├── LoginController.php
-│   │   │   │   ├── ForgotPasswordController.php
-│   │   │   │   ├── ResetPasswordController.php
-│   │   │   ├── DashboardController.php
-│   │   │   ├── ProfileController.php
-│   ├── Middleware/
-│   │   ├── EnsureEmailIsVerified.php
-│   │   ├── RoleMiddleware.php
-│
-database/
-├── migrations/
-│   ├── 2024_xx_xx_create_users_table.php
-│   ├── 2024_xx_xx_create_admins_table.php
-│   ├── 2024_xx_xx_create_roles_table.php
-│   ├── 2024_xx_xx_create_permissions_table.php
-│
-resources/
-├── views/
-│   ├── admin/
-│   │   ├── auth/
-│   │   │   ├── login.blade.php
-│   │   │   ├── forgot-password.blade.php
-│   │   ├── dashboard.blade.php
-│   │   ├── profile/edit.blade.php
-│   │   ├── users/index.blade.php
-│   ├── user/
-│   │   ├── auth/
-│   │   │   ├── register.blade.php
-│   │   │   ├── login.blade.php
-│   │   │   ├── forgot-password.blade.php
-│   │   ├── dashboard.blade.php
-│   │   ├── profile/edit.blade.php
-│   ├── layouts/
-│   │   ├── app.blade.php 
-│   │   ├── guest.blade.php 
-│
-routes/
-├── web.php  
-├── admin.php  
-├── user.php  
+.
+├── app
+│   ├── Http
+│   │   ├── Controllers
+│   │   │   ├── Admin
+│   │   │   │   ├── AuthController.php
+│   │   │   │   └── DashboardController.php
+│   │   │   ├── Controller.php
+│   │   │   └── User
+│   │   │       ├── AuthController.php
+│   │   │       ├── DashboardController.php
+│   │   │       └── ProfileController.php
+│   │   └── Middleware
+│   │       ├── AdminAuthenticate.php
+│   │       └── UserAuthenticate.php
+│   ├── Models
+│   │   └── User.php
+│   └── Providers
+│       └── AppServiceProvider.php
+├── artisan
+├── bootstrap
+│   ├── app.php
+│   ├── cache
+│   │   ├── packages.php
+│   │   └── services.php
+│   └── providers.php
+├── composer.json
+├── composer.lock
+├── config
+│   ├── app.php
+│   ├── auth.php
+│   ├── cache.php
+│   ├── database.php
+│   ├── filesystems.php
+│   ├── logging.php
+│   ├── mail.php
+│   ├── queue.php
+│   ├── services.php
+│   └── session.php
+├── database
+│   ├── database.sqlite
+│   ├── factories
+│   │   └── UserFactory.php
+│   ├── migrations
+│   │   ├── 0001_01_01_000000_create_users_table.php
+│   │   ├── 0001_01_01_000001_create_cache_table.php
+│   │   └── 0001_01_01_000002_create_jobs_table.php
+│   └── seeders
+│       └── DatabaseSeeder.php
+├── package.json
+├── phpunit.xml
+├── public
+│   ├── favicon.ico
+│   ├── index.php
+│   ├── robots.txt
+│   └── storage
+├── README.md
+├── resources
+│   ├── css
+│   │   └── app.css
+│   ├── js
+│   │   ├── app.js
+│   │   └── bootstrap.js
+│   └── views
+│       ├── admin
+│       │   ├── auth
+│       │   │   └── login.blade.php
+│       │   └── dashboard.blade.php
+│       ├── layouts
+│       │   ├── admin.blade.php
+│       │   └── app.blade.php
+│       ├── user
+│       │   ├── auth
+│       │   │   ├── login.blade.php
+│       │   │   └── register.blade.php
+│       │   ├── dashboard.blade.php
+│       │   └── profile
+│       │       └── index.blade.php
+│       └── welcome.blade.php
+├── routes
+│   ├── console.php
+│   └── web.php
+└── vite.config.js
 
 ```
 
