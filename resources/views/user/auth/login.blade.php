@@ -27,7 +27,7 @@
                 <input type="password" name="password" required class="w-full px-4 py-2 border rounded">
             </div>
 
-            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded">Login</button>
+            <button type="submit" class="w-full bg-black text-white py-2 rounded">Login</button>
         </form>
 
         <p class="mt-4 text-center text-sm">

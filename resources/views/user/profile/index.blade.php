@@ -40,7 +40,7 @@
             <input type="email" name="email" value="{{ $user->email }}" required class="w-full px-4 py-2 border rounded">
         </div>
 
-        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded">Update Profile</button>
+        <button type="submit" class="w-full bg-black text-white py-2 rounded">Update Profile</button>
     </form>
 
     <!-- Change Password Form -->
@@ -64,15 +64,15 @@
             <input type="password" name="new_password_confirmation" required class="w-full px-4 py-2 border rounded">
         </div>
 
-        <button type="submit" class="w-full bg-green-500 text-white py-2 rounded">Update Password</button>
+        <button type="submit" class="w-full bg-black text-white py-2 rounded">Update Password</button>
     </form>
 
     <!-- Delete Account -->
-    <h3 class="text-xl font-semibold text-red-600 mb-2">Delete Account</h3>
+    <h3 class="text-xl font-semibold text-black mb-2">Delete Account</h3>
     <form action="{{ route('user.profile.delete') }}" method="POST" onsubmit="return confirmDelete()">
         @csrf
         @method('DELETE')
-        <button type="submit" class="w-full bg-red-500 text-white py-2 rounded">Delete My Account</button>
+        <button type="submit" class="w-full bg-black text-white py-2 rounded">Delete My Account</button>
     </form>
 
     <script>
