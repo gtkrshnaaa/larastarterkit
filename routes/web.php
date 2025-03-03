@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\AuthController as UserAuthController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
+use App\Http\Controllers\User\ProfileController as UserProfileController;
+
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
@@ -20,10 +22,10 @@ Route::post('/logout', [UserAuthController::class, 'logout'])->name('user.logout
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
-    Route::get('/profile', [ProfileController::class, 'show'])->name('user.profile');
-    Route::post('/profile', [ProfileController::class, 'update']);
-    Route::post('/profile/password', [ProfileController::class, 'updatePassword'])->name('user.profile.password');
-    Route::post('/profile/delete', [ProfileController::class, 'destroy'])->name('user.profile.delete');
+    Route::get('/profile', [UserProfileController::class, 'show'])->name('user.profile');
+    Route::post('/profile', [UserProfileController::class, 'update'])->name('user.profile.update');
+    Route::post('/profile/password', [UserProfileController::class, 'updatePassword'])->name('user.profile.update-password');
+    Route::post('/profile/delete', [UserProfileController::class, 'destroy'])->name('user.profile.delete');
 });
 
 // ADMIN AUTH
