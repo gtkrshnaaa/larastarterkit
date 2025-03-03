@@ -20,6 +20,10 @@ Route::post('/logout', [UserAuthController::class, 'logout'])->name('user.logout
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
+    Route::get('/profile', [ProfileController::class, 'show'])->name('user.profile');
+    Route::post('/profile', [ProfileController::class, 'update']);
+    Route::post('/profile/password', [ProfileController::class, 'updatePassword'])->name('user.profile.password');
+    Route::post('/profile/delete', [ProfileController::class, 'destroy'])->name('user.profile.delete');
 });
 
 // ADMIN AUTH
