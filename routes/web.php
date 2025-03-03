@@ -14,6 +14,8 @@ Route::get('/', function () {
 // USER AUTH
 Route::get('/login', [UserAuthController::class, 'showLogin'])->name('user.login');
 Route::post('/login', [UserAuthController::class, 'login']);
+Route::get('/register', [UserAuthController::class, 'showRegister'])->name('user.register');
+Route::post('/register', [UserAuthController::class, 'register']);
 Route::post('/logout', [UserAuthController::class, 'logout'])->name('user.logout');
 
 Route::middleware('auth')->group(function () {
