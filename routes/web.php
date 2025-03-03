@@ -8,7 +8,8 @@ use App\Http\Controllers\User\ProfileController as UserProfileController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
-use App\Http\Middleware\EnsureAdmin;
+use App\Http\Middleware\AdminAuthenticate;
+use App\Http\Middleware\UserAuthenticate;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,7 +23,7 @@ Route::get('/register', [UserAuthController::class, 'showRegister'])->name('user
 Route::post('/register', [UserAuthController::class, 'register']);
 Route::post('/logout', [UserAuthController::class, 'logout'])->name('user.logout');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->middleware(UserAuthenticate::class)->group(function () {
     Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
     Route::get('/profile', [UserProfileController::class, 'show'])->name('user.profile');
     Route::put('/profile', [UserProfileController::class, 'update'])->name('user.profile.update');
@@ -36,7 +37,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/login', [AdminAuthController::class, 'login']);
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
 
-    Route::middleware(['auth'])->middleware(EnsureAdmin::class)->group(function () {
+    Route::middleware('auth')->middleware(AdminAuthenticate::class)->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     });
 });
