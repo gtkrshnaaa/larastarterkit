@@ -48,11 +48,22 @@ This starter kit is designed to be a lightweight alternative to Jetstream, using
 app/
 ├── Http/
 │   ├── Controllers/
-│   │   ├── Auth/
-│   │   │   ├── LoginController.php
-│   │   │   ├── RegisterController.php
-│   │   │   ├── PasswordResetController.php
-│   │   ├── ProfileController.php
+│   │   ├── Admin/
+│   │   │   ├── Auth/
+│   │   │   │   ├── LoginController.php
+│   │   │   │   ├── ForgotPasswordController.php
+│   │   │   │   ├── ResetPasswordController.php
+│   │   │   ├── DashboardController.php
+│   │   │   ├── ProfileController.php
+│   │   │   ├── UserManagementController.php
+│   │   ├── User/
+│   │   │   ├── Auth/
+│   │   │   │   ├── RegisterController.php
+│   │   │   │   ├── LoginController.php
+│   │   │   │   ├── ForgotPasswordController.php
+│   │   │   │   ├── ResetPasswordController.php
+│   │   │   ├── DashboardController.php
+│   │   │   ├── ProfileController.php
 │   ├── Middleware/
 │   │   ├── EnsureEmailIsVerified.php
 │   │   ├── RoleMiddleware.php
@@ -60,25 +71,35 @@ app/
 database/
 ├── migrations/
 │   ├── 2024_xx_xx_create_users_table.php
+│   ├── 2024_xx_xx_create_admins_table.php
 │   ├── 2024_xx_xx_create_roles_table.php
 │   ├── 2024_xx_xx_create_permissions_table.php
 │
 resources/
 ├── views/
-│   ├── auth/
-│   │   ├── login.blade.php
-│   │   ├── register.blade.php
-│   │   ├── forgot-password.blade.php
-│   ├── dashboard.blade.php
+│   ├── admin/
+│   │   ├── auth/
+│   │   │   ├── login.blade.php
+│   │   │   ├── forgot-password.blade.php
+│   │   ├── dashboard.blade.php
+│   │   ├── profile/edit.blade.php
+│   │   ├── users/index.blade.php
+│   ├── user/
+│   │   ├── auth/
+│   │   │   ├── register.blade.php
+│   │   │   ├── login.blade.php
+│   │   │   ├── forgot-password.blade.php
+│   │   ├── dashboard.blade.php
+│   │   ├── profile/edit.blade.php
 │   ├── layouts/
-│   │   ├── app.blade.php
-│   │   ├── guest.blade.php
-│   ├── profile/
-│   │   ├── edit.blade.php
+│   │   ├── app.blade.php 
+│   │   ├── guest.blade.php 
 │
 routes/
-├── web.php
-├── api.php
+├── web.php  
+├── admin.php  
+├── user.php  
+
 ```
 
 ---
