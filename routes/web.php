@@ -23,9 +23,9 @@ Route::post('/logout', [UserAuthController::class, 'logout'])->name('user.logout
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
     Route::get('/profile', [UserProfileController::class, 'show'])->name('user.profile');
-    Route::post('/profile', [UserProfileController::class, 'update'])->name('user.profile.update');
-    Route::post('/profile/password', [UserProfileController::class, 'updatePassword'])->name('user.profile.update-password');
-    Route::post('/profile/delete', [UserProfileController::class, 'destroy'])->name('user.profile.delete');
+    Route::put('/profile', [UserProfileController::class, 'update'])->name('user.profile.update');
+    Route::put('/profile/password', [UserProfileController::class, 'updatePassword'])->name('user.profile.update-password');
+    Route::delete('/profile/delete', [UserProfileController::class, 'destroy'])->name('user.profile.delete');
 });
 
 // ADMIN AUTH
