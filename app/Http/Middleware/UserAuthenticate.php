@@ -6,12 +6,12 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class EnsureAdmin
+class UserAuthenticate
 {
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check() || Auth::user()->role !== 'admin') {
-            return redirect()->route('admin.login')->withErrors(['email' => 'Unauthorized access']);
+        if (!Auth::check() || Auth::user()->role !== 'user') {
+            return redirect()->route('user.login')->withErrors(['email' => 'Unauthorized access']);
         }
 
         return $next($request);
