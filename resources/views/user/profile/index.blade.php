@@ -69,10 +69,17 @@
 
     <!-- Delete Account -->
     <h3 class="text-xl font-semibold text-red-600 mb-2">Delete Account</h3>
-    <form action="{{ route('user.profile.delete') }}" method="POST">
+    <form action="{{ route('user.profile.delete') }}" method="POST" onsubmit="return confirmDelete()">
         @csrf
         @method('DELETE')
         <button type="submit" class="w-full bg-red-500 text-white py-2 rounded">Delete My Account</button>
     </form>
+
+    <script>
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete your account? This action cannot be undone.");
+        }
+    </script>
+
 </div>
 @endsection
