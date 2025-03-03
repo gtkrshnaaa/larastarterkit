@@ -32,6 +32,11 @@
                 <input type="password" name="password" required class="w-full px-4 py-2 border rounded">
             </div>
 
+            <div class="mb-4">
+                <label class="block font-semibold">Confirm Password</label>
+                <input type="password" name="password_confirmation" required class="w-full px-4 py-2 border rounded">
+            </div>
+
             <button type="submit" class="w-full bg-green-500 text-white py-2 rounded">Register</button>
         </form>
 
